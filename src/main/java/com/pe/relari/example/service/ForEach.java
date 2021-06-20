@@ -2,16 +2,13 @@ package com.pe.relari.example.service;
 
 import com.pe.relari.example.model.Employee;
 import com.pe.relari.example.repository.EmployeeRepository;
+import com.pe.relari.example.util.EmployeeUtil;
 
 import java.util.List;
 
 public class ForEach {
 
     private final List<Employee> employees = EmployeeRepository.employees();
-
-    private static void separation() {
-        System.out.println("\n--------------------------------------\n");
-    }
 
     private void foreachJava7FirstShape() {
         System.out.println("Foreach en Java 7");
@@ -46,16 +43,16 @@ public class ForEach {
         ForEach forEach = new ForEach();
 
         forEach.foreachJava7FirstShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEach.foreachJava7SecondShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEach.foreachJava8();
-        separation();
+        EmployeeUtil.separation();
 
         forEach.foreachJava8Reduced();
-        separation();
+        EmployeeUtil.separation();
 
     }
 }

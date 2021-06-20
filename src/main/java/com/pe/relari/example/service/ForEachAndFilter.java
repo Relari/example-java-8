@@ -2,16 +2,13 @@ package com.pe.relari.example.service;
 
 import com.pe.relari.example.model.Employee;
 import com.pe.relari.example.repository.EmployeeRepository;
+import com.pe.relari.example.util.EmployeeUtil;
 
 import java.util.List;
 
 public class ForEachAndFilter {
 
     private final List<Employee> employees = EmployeeRepository.employees();
-
-    private static void separation() {
-        System.out.println("\n--------------------------------------\n");
-    }
 
     private void foreachAndIfInJava7FirstShape() {
         System.out.println("Foreach + Conditional en Java 7");
@@ -51,16 +48,16 @@ public class ForEachAndFilter {
         ForEachAndFilter forEachAndFilter = new ForEachAndFilter();
 
         forEachAndFilter.foreachAndIfInJava7FirstShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndFilter.foreachAndIfInJava7SecondShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndFilter.foreachAndFilterJava8();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndFilter.foreachAndFilterJava8Reduced();
-        separation();
+        EmployeeUtil.separation();
 
     }
 }

@@ -3,6 +3,7 @@ package com.pe.relari.example.service;
 import com.pe.relari.example.model.Employee;
 import com.pe.relari.example.model.Person;
 import com.pe.relari.example.repository.EmployeeRepository;
+import com.pe.relari.example.util.EmployeeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +12,6 @@ import java.util.stream.Collectors;
 public class ForEachAndMap {
 
     private final List<Employee> employees = EmployeeRepository.employees();
-
-    private static void separation() {
-        System.out.println("\n--------------------------------------\n");
-    }
 
     private void foreachConvertJava7FirstShape() {
         System.out.println("Foreach en Java 7");
@@ -29,7 +26,7 @@ public class ForEachAndMap {
             System.out.println(employee);
         }
 
-        separation();
+        EmployeeUtil.separation();
 
         for (int i = 0; i < people.size(); i++) {
             System.out.println(people.get(i));
@@ -47,7 +44,7 @@ public class ForEachAndMap {
             System.out.println(employee);
         }
 
-        separation();
+        EmployeeUtil.separation();
 
         for (Person person: people) {
             System.out.println(person);
@@ -90,19 +87,19 @@ public class ForEachAndMap {
         ForEachAndMap forEachAndMap = new ForEachAndMap();
 
         forEachAndMap.foreachConvertJava7FirstShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndMap.foreachConvertJava7SecondShape();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndMap.foreachWithStreamAndMap();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndMap.foreachWithStreamAndMapWithBuilder();
-        separation();
+        EmployeeUtil.separation();
 
         forEachAndMap.foreachWithStreamAndMapWithMethod();
-        separation();
+        EmployeeUtil.separation();
 
     }
 
