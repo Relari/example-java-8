@@ -12,11 +12,11 @@ public class ForEachAndMap {
 
     private final List<Employee> employees = EmployeeRepository.employees();
 
-    static void separation() {
+    private static void separation() {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public void foreachConvertJava7FirstShape() {
+    private void foreachConvertJava7FirstShape() {
         System.out.println("Foreach en Java 7");
 
         List<Person> people = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ForEachAndMap {
         }
     }
 
-    public void foreachConvertJava7SecondShape() {
+    private void foreachConvertJava7SecondShape() {
         System.out.println("Foreach en Java 7");
 
         List<Person> people = new ArrayList<>();
@@ -54,7 +54,7 @@ public class ForEachAndMap {
         }
     }
 
-    public void foreachWithStreamAndMap() {
+    private void foreachWithStreamAndMap() {
 
         List<Person> people = employees.stream()
                 .map(employee -> {
@@ -65,7 +65,7 @@ public class ForEachAndMap {
         people.forEach(System.out::println);
     }
 
-    public void foreachWithStreamAndMapWithBuilder() {
+    private void foreachWithStreamAndMapWithBuilder() {
         List<Person> people = employees.stream()
                 .map(employee -> new Person(employee.getId(), employee.getName()))
                 .collect(Collectors.toList());
@@ -73,7 +73,7 @@ public class ForEachAndMap {
         people.forEach(System.out::println);
     }
 
-    public void foreachWithStreamAndMapWithMethod() {
+    private void foreachWithStreamAndMapWithMethod() {
         List<Person> people = employees.stream()
                 .map(this::mapPerson)
                 .collect(Collectors.toList());

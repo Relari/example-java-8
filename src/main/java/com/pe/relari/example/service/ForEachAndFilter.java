@@ -9,11 +9,11 @@ public class ForEachAndFilter {
 
     private final List<Employee> employees = EmployeeRepository.employees();
 
-    static void separation() {
+    private static void separation() {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public void foreachAndIfInJava7FirstShape() {
+    private void foreachAndIfInJava7FirstShape() {
         System.out.println("Foreach + Conditional en Java 7");
 
         for (int i = 0; i < employees.size(); i++) {
@@ -23,7 +23,7 @@ public class ForEachAndFilter {
         }
     }
 
-    public void foreachAndIfInJava7SecondShape() {
+    private void foreachAndIfInJava7SecondShape() {
         System.out.println("Foreach + Conditional en Java 7");
         for (Employee employee : employees) {
             if (employee.getStatus()) {
@@ -32,14 +32,14 @@ public class ForEachAndFilter {
         }
     }
 
-    public void foreachAndFilterJava8() {
+    private void foreachAndFilterJava8() {
         System.out.println("Foreach utilized stream en Java 8");
         employees.stream()
                 .filter(employee -> employee.getStatus())
                 .forEach(employee -> System.out.println(employee));
     }
 
-    public void foreachAndFilterJava8Reduced() {
+    private void foreachAndFilterJava8Reduced() {
         System.out.println("Foreach utilized stream reduced en Java 8");
         employees.stream()
                 .filter(Employee::getStatus)

@@ -9,11 +9,11 @@ public class ForEach {
 
     private final List<Employee> employees = EmployeeRepository.employees();
 
-    static void separation() {
+    private static void separation() {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public void foreachJava7FirstShape() {
+    private void foreachJava7FirstShape() {
         System.out.println("Foreach en Java 7");
 
         for (int i = 0; i < employees.size(); i++) {
@@ -22,7 +22,7 @@ public class ForEach {
 
     }
 
-    public void foreachJava7SecondShape() {
+    private void foreachJava7SecondShape() {
         System.out.println("Foreach en Java 7");
 
         for (Employee employee : employees) {
@@ -31,12 +31,12 @@ public class ForEach {
 
     }
 
-    public void foreachJava8() {
+    private void foreachJava8() {
         System.out.println("Foreach en Java 8");
         employees.forEach(employee -> System.out.println(employee));
     }
 
-    public void foreachJava8Reduced() {
+    private void foreachJava8Reduced() {
         System.out.println("Foreach reduced en Java 8");
         employees.forEach(System.out::println);
     }
