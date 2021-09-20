@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ForEach {
 
-    private final List<Employee> employees = EmployeeRepository.employees();
+    private static final List<Employee> employees = EmployeeRepository.employees();
 
-    private void foreachJava7FirstShape() {
+    private static void foreachJava7FirstShape() {
         System.out.println("Foreach en Java 7");
 
         for (int i = 0; i < employees.size(); i++) {
@@ -19,7 +19,7 @@ public class ForEach {
 
     }
 
-    private void foreachJava7SecondShape() {
+    private static void foreachJava7SecondShape() {
         System.out.println("Foreach en Java 7");
 
         for (Employee employee : employees) {
@@ -28,30 +28,28 @@ public class ForEach {
 
     }
 
-    private void foreachJava8() {
+    private static void foreachJava8() {
         System.out.println("Foreach en Java 8");
         employees.forEach(employee -> System.out.println(employee));
     }
 
-    private void foreachJava8Reduced() {
+    private static void foreachJava8Reduced() {
         System.out.println("Foreach reduced en Java 8");
         employees.forEach(System.out::println);
     }
 
     public static void main(String[] args) {
 
-        ForEach forEach = new ForEach();
-
-        forEach.foreachJava7FirstShape();
+        foreachJava7FirstShape();
         EmployeeUtil.separation();
 
-        forEach.foreachJava7SecondShape();
+        foreachJava7SecondShape();
         EmployeeUtil.separation();
 
-        forEach.foreachJava8();
+        foreachJava8();
         EmployeeUtil.separation();
 
-        forEach.foreachJava8Reduced();
+        foreachJava8Reduced();
         EmployeeUtil.separation();
 
     }

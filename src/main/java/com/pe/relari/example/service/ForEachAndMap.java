@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 
 public class ForEachAndMap {
 
-    private final List<Employee> employees = EmployeeRepository.employees();
+    private static final List<Employee> employees = EmployeeRepository.employees();
 
-    private void foreachConvertJava7FirstShape() {
+    private static void foreachConvertJava7FirstShape() {
         System.out.println("Foreach en Java 7");
 
         List<Person> people = new ArrayList<>();
@@ -33,7 +33,7 @@ public class ForEachAndMap {
         }
     }
 
-    private void foreachConvertJava7SecondShape() {
+    private static void foreachConvertJava7SecondShape() {
         System.out.println("Foreach en Java 7");
 
         List<Person> people = new ArrayList<>();
@@ -51,7 +51,7 @@ public class ForEachAndMap {
         }
     }
 
-    private void foreachWithStreamAndMap() {
+    private static void foreachWithStreamAndMap() {
 
         List<Person> people = employees.stream()
                 .map(employee -> {
@@ -62,7 +62,7 @@ public class ForEachAndMap {
         people.forEach(System.out::println);
     }
 
-    private void foreachWithStreamAndMapWithBuilder() {
+    private static void foreachWithStreamAndMapWithBuilder() {
         List<Person> people = employees.stream()
                 .map(employee -> new Person(employee.getId(), employee.getName()))
                 .collect(Collectors.toList());
@@ -70,35 +70,33 @@ public class ForEachAndMap {
         people.forEach(System.out::println);
     }
 
-    private void foreachWithStreamAndMapWithMethod() {
+    private static void foreachWithStreamAndMapWithMethod() {
         List<Person> people = employees.stream()
-                .map(this::mapPerson)
+                .map(ForEachAndMap::mapPerson)
                 .collect(Collectors.toList());
 
         people.forEach(System.out::println);
     }
 
-    private Person mapPerson(Employee employee) {
+    private static Person mapPerson(Employee employee) {
         return new Person(employee.getId(), employee.getName());
     }
 
     public static void main(String[] args) {
 
-        ForEachAndMap forEachAndMap = new ForEachAndMap();
-
-        forEachAndMap.foreachConvertJava7FirstShape();
+        foreachConvertJava7FirstShape();
         EmployeeUtil.separation();
 
-        forEachAndMap.foreachConvertJava7SecondShape();
+        foreachConvertJava7SecondShape();
         EmployeeUtil.separation();
 
-        forEachAndMap.foreachWithStreamAndMap();
+        foreachWithStreamAndMap();
         EmployeeUtil.separation();
 
-        forEachAndMap.foreachWithStreamAndMapWithBuilder();
+        foreachWithStreamAndMapWithBuilder();
         EmployeeUtil.separation();
 
-        forEachAndMap.foreachWithStreamAndMapWithMethod();
+        foreachWithStreamAndMapWithMethod();
         EmployeeUtil.separation();
 
     }

@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ForEachAndFilter {
 
-    private final List<Employee> employees = EmployeeRepository.employees();
+    private static final List<Employee> employees = EmployeeRepository.employees();
 
-    private void foreachAndIfInJava7FirstShape() {
+    private static void foreachAndIfInJava7FirstShape() {
         System.out.println("Foreach + Conditional en Java 7");
 
         for (int i = 0; i < employees.size(); i++) {
@@ -20,7 +20,7 @@ public class ForEachAndFilter {
         }
     }
 
-    private void foreachAndIfInJava7SecondShape() {
+    private static void foreachAndIfInJava7SecondShape() {
         System.out.println("Foreach + Conditional en Java 7");
         for (Employee employee : employees) {
             if (employee.getStatus()) {
@@ -29,14 +29,14 @@ public class ForEachAndFilter {
         }
     }
 
-    private void foreachAndFilterJava8() {
+    private static void foreachAndFilterJava8() {
         System.out.println("Foreach utilized stream en Java 8");
         employees.stream()
                 .filter(employee -> employee.getStatus())
                 .forEach(employee -> System.out.println(employee));
     }
 
-    private void foreachAndFilterJava8Reduced() {
+    private static void foreachAndFilterJava8Reduced() {
         System.out.println("Foreach utilized stream reduced en Java 8");
         employees.stream()
                 .filter(Employee::getStatus)
@@ -45,18 +45,16 @@ public class ForEachAndFilter {
 
     public static void main(String[] args) {
 
-        ForEachAndFilter forEachAndFilter = new ForEachAndFilter();
-
-        forEachAndFilter.foreachAndIfInJava7FirstShape();
+        foreachAndIfInJava7FirstShape();
         EmployeeUtil.separation();
 
-        forEachAndFilter.foreachAndIfInJava7SecondShape();
+        foreachAndIfInJava7SecondShape();
         EmployeeUtil.separation();
 
-        forEachAndFilter.foreachAndFilterJava8();
+        foreachAndFilterJava8();
         EmployeeUtil.separation();
 
-        forEachAndFilter.foreachAndFilterJava8Reduced();
+        foreachAndFilterJava8Reduced();
         EmployeeUtil.separation();
 
     }
