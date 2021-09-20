@@ -23,4 +23,15 @@ public class Employee {
   private Integer salary;
   private Boolean status;
 
+  public EmployeeBuilder mutate() {
+    return Employee.builder()
+            .id(id)
+            .name(name)
+            .age(age)
+            .sex(sex)
+            .position(position)
+            .salary(salary)
+            .status(status);
+  }
+
 }
