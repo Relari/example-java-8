@@ -1,6 +1,6 @@
 package com.pe.relari.example.service;
 
-public class OperationImpl {
+public class OperationService {
 
     public static void main(String[] args) {
 
