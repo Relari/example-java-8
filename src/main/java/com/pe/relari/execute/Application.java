@@ -1,5 +1,6 @@
 package com.pe.relari.execute;
 
+import com.pe.relari.example.model.Employee;
 import com.pe.relari.example.repository.EmployeeRepository;
 import lombok.extern.java.Log;
 
@@ -8,8 +9,8 @@ public class Application {
 
     public static void main(String[] args) {
 
-        var employeeId = 1;
-        var employee = EmployeeRepository
+        Integer employeeId = 1;
+        Employee employee = EmployeeRepository
                 .employees()
                 .stream()
                 .filter(employeeDomain -> employeeDomain.getId().equals(employeeId))
@@ -18,7 +19,7 @@ public class Application {
 
         log.info(employee.toString());
 
-        var employee2 = employee.mutate()
+        Employee employee2 = employee.mutate()
                 .salary(5500)
                 .status(false)
                 .build();
