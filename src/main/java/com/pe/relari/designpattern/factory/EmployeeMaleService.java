@@ -23,11 +23,16 @@ public class EmployeeMaleService implements EmployeeService {
 
     @Override
     public void removeEmployee(Integer id) {
-
+        employees.removeIf(employee ->
+                employee.getId().equals(id) &&
+                        employee.getSex().equals(EmployeeConstant.MALE_CODE)
+        );
     }
 
     @Override
     public void addEmployee(Employee employee) {
-
+        if (employee.getSex().equals(EmployeeConstant.MALE_CODE)) {
+            employees.add(employee);
+        }
     }
 }

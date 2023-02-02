@@ -8,6 +8,15 @@ import com.pe.relari.util.EmployeeConstant;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Hola
+ * asdas
+ * asdasd
+ * adfdsfoijsdfo
+ * dsfjjaoJSFOIJSDF
+ * SPODFPSJFPS
+ */
+
 public class EmployeeFemaleService implements EmployeeService {
 
     private static final List<Employee> employees = EmployeeRepository.employees();
@@ -23,11 +32,16 @@ public class EmployeeFemaleService implements EmployeeService {
 
     @Override
     public void removeEmployee(Integer id) {
-
+        employees.removeIf(employee ->
+                employee.getId().equals(id) &&
+                employee.getSex().equals(EmployeeConstant.FEMALE_CODE)
+        );
     }
 
     @Override
     public void addEmployee(Employee employee) {
-
+        if (employee.getSex().equals(EmployeeConstant.FEMALE_CODE)) {
+            employees.add(employee);
+        }
     }
 }
