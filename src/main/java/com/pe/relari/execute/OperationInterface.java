@@ -1,4 +1,4 @@
-package com.pe.relari.example.service;
+package com.pe.relari.execute;
 
 @FunctionalInterface
 public interface OperationInterface {

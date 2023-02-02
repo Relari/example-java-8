@@ -1,4 +1,4 @@
-package com.pe.relari.example.util;
+package com.pe.relari.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

@@ -1,9 +1,9 @@
-package com.pe.relari.example.service;
+package com.pe.relari.execute;
 
-import com.pe.relari.example.model.Employee;
-import com.pe.relari.example.model.Person;
-import com.pe.relari.example.repository.EmployeeRepository;
-import com.pe.relari.example.util.EmployeeUtil;
+import com.pe.relari.employees.model.Employee;
+import com.pe.relari.employees.model.Person;
+import com.pe.relari.employees.repository.EmployeeRepository;
+import com.pe.relari.util.EmployeeUtil;
 
 import java.util.ArrayList;
 import java.util.List;

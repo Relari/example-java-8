@@ -1,4 +1,4 @@
-package com.pe.relari.example.model;
+package com.pe.relari.employees.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
