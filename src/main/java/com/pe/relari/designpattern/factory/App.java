@@ -10,16 +10,23 @@ public class App {
 
         EmployeeFactory employeeFactory = new EmployeeFactoryImpl();
 
-        EmployeeService employeeService = employeeFactory.getEmployees(EmployeeConstant.MALE_CODE);
+        EmployeeService employeeMaleService = employeeFactory.getEmployees(EmployeeConstant.MALE_CODE);
 
-        employeeService.getEmployees().forEach(System.out::println);
+        employeeMaleService.getEmployees().forEach(System.out::println);
 
         EmployeeUtil.separation();
 
 
-        EmployeeService employeeService2 = employeeFactory.getEmployees(EmployeeConstant.FEMALE_CODE);
+        EmployeeService employeeFemaleService = employeeFactory.getEmployees(EmployeeConstant.FEMALE_CODE);
 
-        employeeService2.getEmployees().forEach(System.out::println);
+        employeeFemaleService.getEmployees().forEach(System.out::println);
+
+
+        EmployeeUtil.separation();
+
+        EmployeeService employeeService = employeeFactory.getEmployees("");
+
+        employeeService.getEmployees().forEach(System.out::println);
 
     }
 }

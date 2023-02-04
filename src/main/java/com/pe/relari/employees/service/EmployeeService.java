@@ -12,4 +12,6 @@ public interface EmployeeService {
 
     void addEmployee(Employee employee);
 
+    Employee searchEmployee(Integer id);
+
 }
