@@ -1,6 +1,7 @@
 package com.pe.relari.employees.repository;
 
 import com.pe.relari.employees.model.Employee;
+import com.pe.relari.employees.model.Person;
 import com.pe.relari.util.EmployeeConstant;
 import com.pe.relari.util.PositionCatalog;
 import lombok.AccessLevel;
@@ -28,6 +29,16 @@ public class EmployeeRepository {
         employees.add(new Employee(10, "Lucero", 25, EmployeeConstant.FEMALE_CODE, PositionCatalog.TEAM_LEAD, 3948, false));
 
         return employees;
+    }
+
+    public static List<Person> people() {
+        List<Person> people = new ArrayList<>();
+
+        for (int i = 1; i <= 1000; i++) {
+            people.add(new Person(i, "Person " + i));
+        }
+
+        return people;
     }
 
 }
