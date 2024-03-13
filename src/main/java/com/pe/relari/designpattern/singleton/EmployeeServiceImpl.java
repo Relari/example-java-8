@@ -1,17 +1,21 @@
 package com.pe.relari.designpattern.singleton;
 
-import com.pe.relari.designpattern.factory.EmployeeMaleService;
 import com.pe.relari.employees.model.Employee;
 import com.pe.relari.employees.repository.EmployeeRepository;
 import com.pe.relari.employees.service.EmployeeService;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static final List<Employee> employees = EmployeeRepository.employees();
+    private static final AtomicInteger id = new AtomicInteger(employees.size());
 
     private static final String CLASS_NAME = EmployeeServiceImpl.class.getSimpleName();
+
+    private static final Logger log = Logger.getLogger(CLASS_NAME);
 
     private EmployeeServiceImpl() {}
 
@@ -19,10 +23,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public static EmployeeService getInstance() {
         if (instance == null) {
-            System.out.println("["+ CLASS_NAME + "] Creando nueva instancia.");
+            log.info("Creando nueva instancia.");
             instance = new EmployeeServiceImpl();
         }
-        System.out.println("["+ CLASS_NAME + "] Retornando instancia creada.");
+        log.info("Retornando instancia creada.");
         return instance;
     }
 
@@ -31,13 +35,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public void removeEmployee(Integer id) {
-        System.out.println("Eliminando el empleado con el ID = " + id);
+        String sb = "Eliminando el empleado con el ID = " + id;
+        log.info(sb);
         employees.removeIf(employee -> employee.getId().equals(id));
     }
 
     @Override
     public void addEmployee(Employee employee) {
-        System.out.println("Agregado al nuevo empleado.");
+        log.info("Agregado al nuevo empleado.");
+        employee.setId(id.incrementAndGet());
         employees.add(employee);
     }
 
