@@ -1,5 +1,6 @@
-package com.pe.relari.employees.model;
+package com.pe.relari.model;
 
+import com.pe.relari.util.GenderCatalog;
 import com.pe.relari.util.PositionCatalog;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +20,7 @@ public class Employee {
   private Integer id;
   private String name;
   private Integer age;
-  private String sex;
+  private GenderCatalog sex;
   private PositionCatalog position;
   private Integer salary;
   private Boolean status;

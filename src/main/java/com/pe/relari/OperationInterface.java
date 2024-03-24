@@ -1,4 +1,4 @@
-package com.pe.relari.execute;
+package com.pe.relari;
 
 @FunctionalInterface
 public interface OperationInterface {

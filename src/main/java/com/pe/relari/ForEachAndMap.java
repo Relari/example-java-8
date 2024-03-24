@@ -1,8 +1,8 @@
-package com.pe.relari.execute;
+package com.pe.relari;
 
-import com.pe.relari.employees.model.Employee;
-import com.pe.relari.employees.model.Person;
-import com.pe.relari.employees.repository.EmployeeRepository;
+import com.pe.relari.model.Employee;
+import com.pe.relari.model.Person;
+import com.pe.relari.repository.EmployeeRepository;
 import com.pe.relari.util.EmployeeUtil;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class ForEachAndMap {
         for (int i = 0; i < employees.size(); i++) {
 
             Employee employee = employees.get(i);
-            people.add(new Person(employee.getId(), employee.getName()));
+            people.add(new Person(employee.getId(), employee.getName(), employee.getSex()));
 
             System.out.println(employee);
         }
@@ -39,7 +39,7 @@ public class ForEachAndMap {
         List<Person> people = new ArrayList<>();
 
         for (Employee employee : employees) {
-            people.add(new Person(employee.getId(), employee.getName()));
+            people.add(new Person(employee.getId(), employee.getName(), employee.getSex()));
 
             System.out.println(employee);
         }
@@ -55,7 +55,7 @@ public class ForEachAndMap {
 
         List<Person> people = employees.stream()
                 .map(employee -> {
-                    Person person = new Person(employee.getId(), employee.getName());
+                    Person person = new Person(employee.getId(), employee.getName(), employee.getSex());
                     return person;
                 }).collect(Collectors.toList());
 
@@ -64,7 +64,7 @@ public class ForEachAndMap {
 
     private static void foreachWithStreamAndMapWithBuilder() {
         List<Person> people = employees.stream()
-                .map(employee -> new Person(employee.getId(), employee.getName()))
+                .map(employee -> new Person(employee.getId(), employee.getName(), employee.getSex()))
                 .collect(Collectors.toList());
 
         people.forEach(System.out::println);
@@ -72,14 +72,10 @@ public class ForEachAndMap {
 
     private static void foreachWithStreamAndMapWithMethod() {
         List<Person> people = employees.stream()
-                .map(ForEachAndMap::mapPerson)
+                .map(Person::new)
                 .collect(Collectors.toList());
 
         people.forEach(System.out::println);
-    }
-
-    private static Person mapPerson(Employee employee) {
-        return new Person(employee.getId(), employee.getName());
     }
 
     public static void main(String[] args) {

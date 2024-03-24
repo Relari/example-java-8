@@ -1,9 +1,8 @@
-package com.pe.relari.execute;
+package com.pe.relari;
 
-import com.pe.relari.employees.model.Person;
-import com.pe.relari.employees.repository.EmployeeRepository;
+import com.pe.relari.model.Person;
+import com.pe.relari.repository.EmployeeRepository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
